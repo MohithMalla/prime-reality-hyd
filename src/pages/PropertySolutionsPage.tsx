@@ -13,6 +13,7 @@ import { PROPERTY_CATEGORIES, HOW_WE_HELP_CHOOSE, BRAND } from '../data/content'
 import { PageHero } from '../components/PageHero';
 import { SectionHeader } from '../components/SectionHeader';
 import { CTASection } from '../components/CTASection';
+import { LocationsCoverageSection } from '../components/LocationsCoverageSection';
 
 export const PropertySolutionsPage: React.FC = () => {
   return (
@@ -21,7 +22,7 @@ export const PropertySolutionsPage: React.FC = () => {
         badge="Curated Property Portfolio"
         title="Property Opportunities Designed"
         highlightText="Around Your Goals"
-        subtitle="Explore detailed advisory across residential plotted developments, luxury villas, modern apartments, managed farm plots, and commercial assets across Hyderabad."
+        subtitle="Explore detailed advisory across residential plotted developments, luxury villas, modern apartments, managed farm plots, and commercial assets across Hyderabad and all 8 National Highway corridors."
         breadcrumbCurrent="Property Solutions"
         bgImage="/images/hero-real-estate.jpg"
       />
@@ -60,9 +61,9 @@ export const PropertySolutionsPage: React.FC = () => {
                       <div className="absolute bottom-4 left-4 right-4 bg-slate-950/85 backdrop-blur-md p-3.5 rounded-xl text-white text-xs flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <MapPin className="w-4 h-4 text-brand-orange-400 flex-shrink-0" />
-                          <span className="font-semibold">{category.locations[0]} & {category.locations[1]}</span>
+                          <span className="font-semibold">{category.locations[0]}</span>
                         </div>
-                        <span className="text-[10px] text-brand-orange-300 font-bold uppercase">Prime Belt</span>
+                        <span className="text-[10px] text-brand-orange-300 font-bold uppercase">Prime Growth Belt</span>
                       </div>
                     </div>
                   </div>
@@ -79,6 +80,24 @@ export const PropertySolutionsPage: React.FC = () => {
                       <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
                         {category.description}
                       </p>
+                    </div>
+
+                    {/* Prominent Highway & Location Belts */}
+                    <div className="space-y-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                        <MapPin className="w-3.5 h-3.5 text-brand-orange-500" />
+                        <span>Featured National Highways & Growth Corridors:</span>
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {category.locations.map((loc, lIdx) => (
+                          <span
+                            key={lIdx}
+                            className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-100 border border-slate-200 text-slate-800"
+                          >
+                            {loc}
+                          </span>
+                        ))}
+                      </div>
                     </div>
 
                     {/* Highlights */}
@@ -175,6 +194,9 @@ export const PropertySolutionsPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* 3. DEDICATED COVERAGE SECTION — HYDERABAD & ALL NATIONAL HIGHWAYS */}
+      <LocationsCoverageSection />
 
       {/* CTA */}
       <CTASection

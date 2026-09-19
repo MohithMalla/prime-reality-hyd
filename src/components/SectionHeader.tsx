@@ -7,6 +7,7 @@ interface SectionHeaderProps {
   subtitle?: string;
   centered?: boolean;
   dark?: boolean;
+  underline?: boolean;
   className?: string;
 }
 
@@ -17,6 +18,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   subtitle,
   centered = false,
   dark = false,
+  underline = false,
   className = '',
 }) => {
   return (
@@ -35,7 +37,9 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         {highlightedTitle && (
           <span className="text-brand-orange-500 relative inline-block">
             {highlightedTitle}
-            <span className="absolute bottom-1 left-0 right-0 h-1 bg-brand-orange-200/40 -z-10 rounded"></span>
+            {underline && (
+              <span className="absolute bottom-1 left-0 right-0 h-1 bg-brand-orange-200/40 -z-10 rounded"></span>
+            )}
           </span>
         )}
       </h2>

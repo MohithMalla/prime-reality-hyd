@@ -124,7 +124,286 @@ export interface PropertyCategory {
   highlights: string[];
   keyConsiderations: string[];
   locations: string[];
+  highways: string[];
 }
+
+export interface HighwayCorridor {
+  id: string;
+  name: string;
+  highwayCode: string;
+  direction: string;
+  headline: string;
+  keyAreas: string[];
+  propertyTypes: string[];
+  growthDrivers: string;
+}
+
+export interface CityZone {
+  id: string;
+  zone: string;
+  tagline: string;
+  majorAreas: string[];
+  description: string;
+}
+
+export const NATIONAL_HIGHWAYS: HighwayCorridor[] = [
+  {
+    id: "mumbai-highway",
+    name: "Mumbai Highway",
+    highwayCode: "NH-65",
+    direction: "North-West Corridor",
+    headline: "Hyderabad – Mumbai Economic Growth Corridor",
+    keyAreas: [
+      "Miyapur",
+      "Chandanagar",
+      "Beeramguda",
+      "Patancheru",
+      "Isnapur",
+      "Rudraram",
+      "Kandi (IIT Hyderabad)",
+      "Sangareddy",
+      "Sadashivpet",
+      "Zaheerabad NIMZ Belt"
+    ],
+    propertyTypes: ["Residential Plots", "Gated Communities", "Industrial & Commercial Hubs", "Farm Lands"],
+    growthDrivers: "IIT Hyderabad, NIMZ Zaheerabad, Patancheru Industrial Belt, ORR Exit 3 & upcoming Regional Ring Road (RRR) connectivity.",
+  },
+  {
+    id: "bengaluru-highway",
+    name: "Bengaluru Highway",
+    highwayCode: "NH-44",
+    direction: "South Corridor",
+    headline: "Hyderabad – Bengaluru Aerotropolis & Logistics Corridor",
+    keyAreas: [
+      "Shamshabad",
+      "Gaganpahad",
+      "Thimmapur",
+      "Kothur",
+      "Nandigama",
+      "Shadnagar",
+      "Farooqnagar",
+      "Balanagar",
+      "Jadcherla SEZ"
+    ],
+    propertyTypes: ["HMDA Plotted Developments", "Luxury Villas", "Aviation Logistics Land", "Weekend Farm Plots"],
+    growthDrivers: "Rajiv Gandhi International Airport (RGIA), Amazon Fulfilment Centre, Aerospace & Defence Park, Multi-Modal Logistics Hubs & RRR South Loop.",
+  },
+  {
+    id: "shankarpally-vikarabad",
+    name: "Shankarpally & Vikarabad",
+    highwayCode: "SH / NH Connectivity",
+    direction: "West Eco-Residential Corridor",
+    headline: "Western Greenery, Premium Villas & Fast-Appreciating Open Land",
+    keyAreas: [
+      "Mokila",
+      "Shankarpally",
+      "Chevella",
+      "Janwada",
+      "Tangatur",
+      "Vikarabad",
+      "Ananthagiri Hills Belt",
+      "Mominpet",
+      "Pudur"
+    ],
+    propertyTypes: ["Luxury Gated Villas", "HMDA Villa Plots", "Weekend Farm Plots", "Resort & Eco-Landholdings"],
+    growthDrivers: "Immediate signal-free drive to Neopolis/Financial District, picturesque green belts, luxury villa township developments, and tourist eco-circuit.",
+  },
+  {
+    id: "srisailam-highway",
+    name: "Srisailam Highway",
+    highwayCode: "NH-765",
+    direction: "South-East Corridor",
+    headline: "Pharma City, Aerospace & Southern Growth Hub",
+    keyAreas: [
+      "Tukkuguda (ORR Exit 14)",
+      "Maheshwaram",
+      "Mansanpally",
+      "Mankhal",
+      "Fab City",
+      "Kandukur",
+      "Kadthal",
+      "Muchintal (Statue of Equality)",
+      "Amangal",
+      "Kalwakurthy"
+    ],
+    propertyTypes: ["HMDA & RERA Approved Plots", "Gated Villa Communities", "Pharma & Industrial Enclaves", "High-Yield Land Parcels"],
+    growthDrivers: "Hardware Park, E-City, Ratan Tata Innovation Hubs, Hyderabad Pharma City corridor, and direct airport connectivity via ORR Exit 14.",
+  },
+  {
+    id: "vijayawada-highway",
+    name: "Vijayawada Highway",
+    highwayCode: "NH-65",
+    direction: "East Corridor",
+    headline: "Hyderabad – Vijayawada High-Volume Commercial & Plotted Belt",
+    keyAreas: [
+      "LB Nagar",
+      "Hayathnagar",
+      "Pedda Amberpet (ORR Exit 11)",
+      "Ramoji Film City Belt",
+      "Batasingaram Logistics Park",
+      "Choutuppal",
+      "Gundrampally",
+      "Panthangi"
+    ],
+    propertyTypes: ["Residential Open Plots", "Commercial Strip Land", "Warehousing & Logistics Hubs", "Independent Houses"],
+    growthDrivers: "Batasingaram Fruit & Logistics Market, Industrial clusters at Choutuppal, 6-lane National Highway expansion, and strong commuter density.",
+  },
+  {
+    id: "warangal-highway",
+    name: "Warangal Highway",
+    highwayCode: "NH-163",
+    direction: "North-East Corridor",
+    headline: "Hyderabad – Warangal Industrial & Temple City Corridor",
+    keyAreas: [
+      "Uppal",
+      "Boduppal",
+      "Peerzadiguda",
+      "Narapally",
+      "Pocharam (Infosys SEZ)",
+      "Ghatkesar (ORR Exit 9)",
+      "Bibinagar (AIIMS)",
+      "Bhongir",
+      "Yadagirigutta (Sri Lakshmi Narasimha Swamy Temple Belt)",
+      "Aler"
+    ],
+    propertyTypes: ["HMDA Approved Layouts", "IT Corridor Apartments", "Spiritual & Temple City Land", "Industrial Parks"],
+    growthDrivers: "Infosys SEZ at Pocharam, AIIMS Bibinagar, Yadadri Temple City development corridor, MMTS Phase 2 rail link, and multi-lane expressway.",
+  },
+  {
+    id: "medchal-highway",
+    name: "Medchal Highway",
+    highwayCode: "NH-44",
+    direction: "North Corridor",
+    headline: "Hyderabad – Nagpur / Medchal Institutional & Residential Artery",
+    keyAreas: [
+      "Bowenpally",
+      "Suchitra Circle",
+      "Kompally",
+      "Dulapally",
+      "Gundlapochampally",
+      "Kandlakoya IT Park (Gateway IT Park)",
+      "Medchal Town (ORR Exit 6)",
+      "Medchal Checkpost",
+      "Kallakal Industrial Area",
+      "Toopran",
+      "Chegunta"
+    ],
+    propertyTypes: ["High-End Gated Villas", "Modern High-Rise Apartments", "HMDA Approved Layouts", "Warehousing & Logistics"],
+    growthDrivers: "Kandlakoya Gateway IT Park, Kompally entertainment and healthcare infrastructure, 6-lane elevated corridors, and major educational institutions.",
+  },
+  {
+    id: "shamirpet-highway",
+    name: "Shamirpet Highway",
+    highwayCode: "Rajiv Rahadari / SH-1",
+    direction: "North-North-East Corridor",
+    headline: "Biotech Valley & Karimnagar High-Speed Expressway",
+    keyAreas: [
+      "Karkhana",
+      "Alwal",
+      "Bolarum",
+      "Hakimpet",
+      "Thumkunta",
+      "Shamirpet (ORR Exit 7)",
+      "Genome Valley",
+      "Aliabad",
+      "Mulkaloor",
+      "Pragnapur",
+      "Siddipet Road"
+    ],
+    propertyTypes: ["HMDA Residential Plots", "Luxury Eco-Retreat Villas", "Bio-Tech Employee Housing", "Managed Farmlands"],
+    growthDrivers: "Genome Valley (India's premier Life Sciences & Biotech hub), BITS Pilani Hyderabad campus, Shamirpet Lake eco-tourism, and ORR Exit 7 connectivity.",
+  },
+];
+
+export const HYDERABAD_ZONES: CityZone[] = [
+  {
+    id: "west-hyderabad",
+    zone: "West Hyderabad (IT & Financial Powerhouse)",
+    tagline: "Corporate Headquarters, High-Rise Enclaves & Luxury Villa Belts",
+    majorAreas: [
+      "Hitec City",
+      "Gachibowli",
+      "Financial District",
+      "Madhapur",
+      "Kondapur",
+      "Kokapet (Neopolis)",
+      "Nanakramguda",
+      "Tellapur",
+      "Kollur",
+      "Narsingi",
+      "Puppalguda",
+      "Manikonda",
+      "Khajaguda",
+      "Kavuri Hills",
+      "Jubilee Hills Extension"
+    ],
+    description: "The economic heart of modern Hyderabad. Characterized by Grade-A IT parks, the Neopolis high-density growth node, international schools, metro lines, and premier high-rise residential towers.",
+  },
+  {
+    id: "north-hyderabad",
+    zone: "North Hyderabad (Institutional & Gated Living)",
+    tagline: "Lush Green Spaces, Commercial Corridors & Established Towns",
+    majorAreas: [
+      "Kompally",
+      "Medchal",
+      "Bachupally",
+      "Pragathi Nagar",
+      "Nizampet",
+      "Kukatpally (KPHB)",
+      "Miyapur",
+      "Bowenpally",
+      "Alwal",
+      "Sainikpuri",
+      "Yapral",
+      "Shamirpet",
+      "Gundlapochampally",
+      "Suchitra"
+    ],
+    description: "A fast-growing residential favorite offering superior educational hubs, spacious gated villa enclaves, Kandlakoya Gateway IT Park, and seamless connectivity via NH-44 and Rajiv Rahadari.",
+  },
+  {
+    id: "central-hyderabad",
+    zone: "Central Hyderabad (Heritage & Elite Urban Living)",
+    tagline: "Premier High-Street Addresses & High-Catchment Hubs",
+    majorAreas: [
+      "Banjara Hills",
+      "Jubilee Hills",
+      "Somajiguda",
+      "Begumpet",
+      "Ameerpet",
+      "Erragadda (Prime Realty Office)",
+      "Motinagar",
+      "Sanathnagar",
+      "SR Nagar",
+      "Panjagutta",
+      "Himayatnagar",
+      "Secunderabad Cantonment"
+    ],
+    description: "The classic luxury core of the city. Encompasses high-end commercial retail streets, diplomatic and corporate offices, healthcare institutions, and established luxury residences.",
+  },
+  {
+    id: "east-south-hyderabad",
+    zone: "East & South Hyderabad (Aerospace, Pharma & Logistics)",
+    tagline: "Rapidly Expanding Industrial, Aero & Plotted Corridors",
+    majorAreas: [
+      "Uppal",
+      "LB Nagar",
+      "Nagole",
+      "Dilsukhnagar",
+      "Boduppal",
+      "Peerzadiguda",
+      "Pocharam",
+      "Ghatkesar",
+      "Shamshabad",
+      "Rajendra Nagar",
+      "Attapur",
+      "Adibatla (Tata Aerospace)",
+      "Tukkuguda",
+      "Maheshwaram"
+    ],
+    description: "Home to Rajiv Gandhi International Airport, hardware and aerospace parks, TCS Adibatla, Pocharam Infosys campus, and expansive HMDA plotted developments along NH-65 and NH-765.",
+  },
+];
 
 export const PROPERTY_CATEGORIES: PropertyCategory[] = [
   {
@@ -146,7 +425,27 @@ export const PROPERTY_CATEGORIES: PropertyCategory[] = [
       "Assess road widening proposals and arterial connectivity",
       "Inspect municipal water supply and underground infrastructure",
     ],
-    locations: ["Shankarpally Corridor", "Mokila & Chevella Belt", "Kompally & Medchal", "Maheshwaram & Shamshabad", "Adibatla & Sagar Highway"],
+    locations: [
+      "Shankarpally & Mokila Corridor",
+      "Mumbai Highway (Patancheru, Kandi, Sangareddy, Sadashivpet)",
+      "Bengaluru Highway (Shamshabad, Kothur, Shadnagar)",
+      "Srisailam Highway (Tukkuguda, Maheshwaram, Kadthal)",
+      "Vijayawada Highway (Hayathnagar, Pedda Amberpet, Choutuppal)",
+      "Warangal Highway (Ghatkesar, Bibinagar, Bhongir, Yadagirigutta)",
+      "Medchal Highway (Kompally, Kandlakoya, Medchal)",
+      "Shamirpet Highway (Genome Valley, Thumkunta)",
+      "Adibatla & Sagar Highway Corridor"
+    ],
+    highways: [
+      "Mumbai Highway (NH-65)",
+      "Bengaluru Highway (NH-44)",
+      "Shankarpally & Vikarabad Belt",
+      "Srisailam Highway (NH-765)",
+      "Vijayawada Highway (NH-65)",
+      "Warangal Highway (NH-163)",
+      "Medchal Highway (NH-44)",
+      "Shamirpet Highway (Rajiv Rahadari)"
+    ],
   },
   {
     id: "villas",
@@ -167,7 +466,23 @@ export const PROPERTY_CATEGORIES: PropertyCategory[] = [
       "Clubhouse maintenance fees and community association setup",
       "Travel commute time to major workplace hubs",
     ],
-    locations: ["Kokapet & Gandipet", "Tellapur & Kollur", "Mokila Villa Belt", "Appa Junction & Rajendra Nagar", "Bowenpally & Kompally"],
+    locations: [
+      "Kokapet & Gandipet",
+      "Tellapur, Kollur & Osman Nagar",
+      "Mokila & Shankarpally Luxury Villa Belt",
+      "Appa Junction & Rajendra Nagar",
+      "Medchal Highway (Kompally & Gundlapochampally)",
+      "Mumbai Highway (Patancheru & Isnapur Enclaves)",
+      "Bengaluru Highway (Shamshabad & Kothur Gated Belts)",
+      "Shamirpet & Alwal Green Retreats"
+    ],
+    highways: [
+      "Shankarpally & Vikarabad Corridor",
+      "Mumbai Highway (NH-65)",
+      "Bengaluru Highway (NH-44)",
+      "Medchal Highway (NH-44)",
+      "Shamirpet Highway"
+    ],
   },
   {
     id: "apartments",
@@ -188,7 +503,23 @@ export const PROPERTY_CATEGORIES: PropertyCategory[] = [
       "Number of units per floor and high-speed elevator ratios",
       "Approvals from municipal bodies (GHMC/HMDA) and RERA compliance",
     ],
-    locations: ["Financial District & Gachibowli", "Nanakramguda & Khajaguda", "Kondapur & Hitec City", "Miyapur & Nizampet", "Bachupally & Pragathi Nagar"],
+    locations: [
+      "Financial District, Gachibowli & Nanakramguda",
+      "Hitec City, Madhapur & Kondapur",
+      "Miyapur, Chandanagar & Kukatpally",
+      "Bachupally, Nizampet & Pragathi Nagar",
+      "Begumpet, Ameerpet, Erragadda & Motinagar (Central Hyd)",
+      "Medchal Highway (Suchitra, Kompally)",
+      "Warangal Highway (Uppal, Boduppal, Pocharam)",
+      "Vijayawada Highway (LB Nagar, Nagole, Hayathnagar)"
+    ],
+    highways: [
+      "Mumbai Highway (NH-65)",
+      "Medchal Highway (NH-44)",
+      "Warangal Highway (NH-163)",
+      "Vijayawada Highway (NH-65)",
+      "Bengaluru Highway (NH-44)"
+    ],
   },
   {
     id: "farm-plots",
@@ -209,7 +540,24 @@ export const PROPERTY_CATEGORIES: PropertyCategory[] = [
       "Groundwater availability and electrical connection feasibility",
       "Clear understanding of agricultural land regulations in Telangana",
     ],
-    locations: ["Chevella & Vikarabad Belt", "Shadnagar & Balanagar", "Sangareddy & Zaheerabad Corridor", "Yadagirigutta & Bhongir", "Ibrahimpatnam Belt"],
+    locations: [
+      "Shankarpally, Chevella & Vikarabad Belt (Ananthagiri Hills)",
+      "Bengaluru Highway (Shadnagar, Balanagar, Jadcherla)",
+      "Mumbai Highway (Sangareddy, Sadashivpet, Zaheerabad)",
+      "Srisailam Highway (Kadthal, Amangal, Kalwakurthy)",
+      "Warangal Highway (Bhongir, Yadagirigutta, Aler)",
+      "Vijayawada Highway (Choutuppal, Gundrampally)",
+      "Shamirpet & Siddipet Highway Belt"
+    ],
+    highways: [
+      "Shankarpally & Vikarabad Route",
+      "Bengaluru Highway (NH-44)",
+      "Mumbai Highway (NH-65)",
+      "Srisailam Highway (NH-765)",
+      "Warangal Highway (NH-163)",
+      "Vijayawada Highway (NH-65)",
+      "Shamirpet Highway"
+    ],
   },
   {
     id: "commercial-properties",
@@ -230,7 +578,22 @@ export const PROPERTY_CATEGORIES: PropertyCategory[] = [
       "Compliance with commercial fire safety and parking norms",
       "Leaseability and business tenant profile suitability",
     ],
-    locations: ["Financial District & Knowledge City", "Madhapur & Jubilee Hills Road 36/45", "Kukatpally & Miyapur Main Corridors", "Kompally Highway Strip", "Uppal & LB Nagar Commercial Belts"],
+    locations: [
+      "Financial District & Knowledge City",
+      "Madhapur & Jubilee Hills Road 36/45",
+      "Kukatpally & Miyapur Commercial Belts (Mumbai Highway)",
+      "Kompally Highway Commercial Strip (Medchal Highway)",
+      "Uppal & LB Nagar Commercial Hubs (Warangal & Vijayawada Highways)",
+      "Shamshabad Airport Corridor (Bengaluru Highway)",
+      "Ameerpet, Erragadda & Punjagutta Prime Retail Strips"
+    ],
+    highways: [
+      "Mumbai Highway (NH-65)",
+      "Medchal Highway (NH-44)",
+      "Bengaluru Highway (NH-44)",
+      "Vijayawada Highway (NH-65)",
+      "Warangal Highway (NH-163)"
+    ],
   },
 ];
 

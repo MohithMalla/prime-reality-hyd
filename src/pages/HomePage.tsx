@@ -16,13 +16,15 @@ import {
   BRAND, 
   PROPERTY_CATEGORIES, 
   SERVICES, 
-  TRUST_FACTORS 
+  TRUST_FACTORS,
+  NATIONAL_HIGHWAYS
 } from '../data/content';
 import { SectionHeader } from '../components/SectionHeader';
 import { PropertyCard } from '../components/PropertyCard';
 import { ServiceCard } from '../components/ServiceCard';
 import { ProcessTimeline } from '../components/ProcessTimeline';
 import { CTASection } from '../components/CTASection';
+import { LocationsCoverageSection } from '../components/LocationsCoverageSection';
 
 export const HomePage: React.FC = () => {
   return (
@@ -59,8 +61,24 @@ export const HomePage: React.FC = () => {
 
             {/* Supporting Copy */}
             <p className="mt-6 text-base sm:text-lg lg:text-xl text-slate-200 leading-relaxed font-normal max-w-2xl">
-              Professional real estate guidance for plots, villas, apartments, farm plots and commercial properties across Hyderabad and its rapidly developing surrounding areas.
+              Professional real estate guidance for plots, villas, apartments, farm plots and commercial spaces across the entire city of Hyderabad and all major National Highway corridors.
             </p>
+
+            {/* Highway Badges Bar */}
+            <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-semibold text-slate-200">
+              <span className="px-2.5 py-1 rounded bg-white/15 backdrop-blur-sm border border-white/20 text-brand-orange-300 font-bold">
+                Coverage:
+              </span>
+              <span className="px-2.5 py-1 rounded bg-white/10 backdrop-blur-sm border border-white/10">Entire Hyderabad</span>
+              <span className="px-2.5 py-1 rounded bg-white/10 backdrop-blur-sm border border-white/10">Mumbai Highway</span>
+              <span className="px-2.5 py-1 rounded bg-white/10 backdrop-blur-sm border border-white/10">Bengaluru Highway</span>
+              <span className="px-2.5 py-1 rounded bg-white/10 backdrop-blur-sm border border-white/10">Shankarpally & Vikarabad</span>
+              <span className="px-2.5 py-1 rounded bg-white/10 backdrop-blur-sm border border-white/10">Srisailam Highway</span>
+              <span className="px-2.5 py-1 rounded bg-white/10 backdrop-blur-sm border border-white/10">Vijayawada Highway</span>
+              <span className="px-2.5 py-1 rounded bg-white/10 backdrop-blur-sm border border-white/10">Warangal Highway</span>
+              <span className="px-2.5 py-1 rounded bg-white/10 backdrop-blur-sm border border-white/10">Medchal Highway</span>
+              <span className="px-2.5 py-1 rounded bg-white/10 backdrop-blur-sm border border-white/10">Shamirpet Highway</span>
+            </div>
 
             {/* CTAs */}
             <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -88,11 +106,11 @@ export const HomePage: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Compass className="w-4 h-4 text-brand-orange-400 flex-shrink-0" />
-                <span>High-Growth Corridors</span>
+                <span>All 8 National Highways</span>
               </div>
               <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
                 <Building2 className="w-4 h-4 text-brand-orange-400 flex-shrink-0" />
-                <span>End-to-End Support</span>
+                <span>Entire Hyderabad City</span>
               </div>
             </div>
           </div>
@@ -107,8 +125,8 @@ export const HomePage: React.FC = () => {
               <SectionHeader
                 eyebrow="Our Approach"
                 title="Trusted Real Estate Guidance Across"
-                highlightedTitle="Hyderabad"
-                subtitle="At Prime Realty Hyderabad, our philosophy is anchored in our tagline: 'your choice our service'. We do not push arbitrary listings; we provide structured advisory so you make decisions with clarity, legal security, and confidence."
+                highlightedTitle="Hyderabad & All Highways"
+                subtitle="At Prime Realty Hyderabad, our philosophy is anchored in our tagline: 'your choice our service'. We do not push arbitrary listings; we provide structured advisory spanning the full city of Hyderabad and every major National Highway corridor."
               />
 
               <div className="space-y-4 pt-2">
@@ -121,7 +139,7 @@ export const HomePage: React.FC = () => {
                       Objective, Research-Backed Guidance
                     </h4>
                     <p className="text-slate-600 text-xs leading-relaxed">
-                      We analyze micro-market rate trends, upcoming arterial connectivity, and growth drivers to match properties to your genuine requirements.
+                      We analyze micro-market rate trends, upcoming arterial connectivity, and growth drivers along NH-65, NH-44, NH-765, NH-163, and Rajiv Rahadari.
                     </p>
                   </div>
                 </div>
@@ -149,7 +167,7 @@ export const HomePage: React.FC = () => {
                       Dedicated One-on-One Client Advisory
                     </h4>
                     <p className="text-slate-600 text-xs leading-relaxed">
-                      You work directly with knowledgeable property specialists who escort you for on-ground site visits, paperwork, and registration.
+                      You work directly with knowledgeable property specialists who escort you for on-ground site visits, paperwork, and registration across any corridor.
                     </p>
                   </div>
                 </div>
@@ -240,7 +258,10 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. SECTION — OUR SERVICES */}
+      {/* 4. DEDICATED SECTION — LOCATIONS & NATIONAL HIGHWAYS COVERAGE */}
+      <LocationsCoverageSection />
+
+      {/* 5. SECTION — OUR SERVICES */}
       <section className="py-20 bg-slate-50 border-t border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader

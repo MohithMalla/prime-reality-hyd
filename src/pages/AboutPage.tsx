@@ -16,6 +16,7 @@ import { BRAND } from '../data/content';
 import { PageHero } from '../components/PageHero';
 import { SectionHeader } from '../components/SectionHeader';
 import { CTASection } from '../components/CTASection';
+import { LocationsCoverageSection } from '../components/LocationsCoverageSection';
 
 export const AboutPage: React.FC = () => {
   const approachSteps = [
@@ -263,7 +264,7 @@ export const AboutPage: React.FC = () => {
                 Deep Micro-Market Knowledge
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed">
-                From the Financial District and Kokapet to high-potential plotted zones in Shankarpally, Mokila, and Kompally, we track genuine infrastructural and civic progress.
+                From the Financial District and Kokapet to all 8 National Highway growth corridors (Mumbai, Bengaluru, Srisailam, Vijayawada, Warangal, Medchal, Shankarpally/Vikarabad, and Shamirpet), we track genuine infrastructural and civic progress.
               </p>
             </div>
 
@@ -279,6 +280,9 @@ export const AboutPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* 5. LOCATIONS & HIGHWAYS COVERAGE */}
+      <LocationsCoverageSection />
 
       {/* CTA */}
       <CTASection

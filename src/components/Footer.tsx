@@ -156,6 +156,57 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* National Highways & Hyderabad Coverage Strip */}
+        <div className="py-8 border-b border-slate-800/80">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-orange-400 block mb-1">
+                Extensive Regional Coverage
+              </span>
+              <h5 className="font-heading font-extrabold text-white text-sm sm:text-base">
+                Entire City of Hyderabad & All 8 National Highway Corridors
+              </h5>
+            </div>
+            <Link
+              to="/property-solutions"
+              className="text-xs font-bold text-brand-orange-400 hover:text-white transition-colors flex items-center gap-1.5 self-start lg:self-center"
+            >
+              <span>Explore Coverage Maps & Properties</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap gap-2 text-xs">
+            <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-medium">
+              <strong className="text-brand-orange-400 font-bold">Mumbai Highway (NH-65):</strong> Patancheru, Sangareddy, Sadashivpet, Zaheerabad
+            </span>
+            <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-medium">
+              <strong className="text-brand-orange-400 font-bold">Bengaluru Highway (NH-44):</strong> Shamshabad, Kothur, Shadnagar, Balanagar, Jadcherla
+            </span>
+            <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-medium">
+              <strong className="text-brand-orange-400 font-bold">Shankarpally & Vikarabad:</strong> Mokila, Shankarpally, Chevella, Ananthagiri Hills
+            </span>
+            <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-medium">
+              <strong className="text-brand-orange-400 font-bold">Srisailam Highway (NH-765):</strong> Tukkuguda, Maheshwaram, Mansanpally, Kadthal, Kalwakurthy
+            </span>
+            <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-medium">
+              <strong className="text-brand-orange-400 font-bold">Vijayawada Highway (NH-65):</strong> LB Nagar, Hayathnagar, Pedda Amberpet, Choutuppal
+            </span>
+            <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-medium">
+              <strong className="text-brand-orange-400 font-bold">Warangal Highway (NH-163):</strong> Uppal, Pocharam, Ghatkesar, Bibinagar, Bhongir, Yadagirigutta
+            </span>
+            <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-medium">
+              <strong className="text-brand-orange-400 font-bold">Medchal Highway (NH-44 North):</strong> Kompally, Kandlakoya IT Park, Medchal, Toopran
+            </span>
+            <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-medium">
+              <strong className="text-brand-orange-400 font-bold">Shamirpet Highway:</strong> Alwal, Bolarum, Shamirpet, Genome Valley, Rajiv Rahadari
+            </span>
+            <span className="px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 font-medium">
+              <strong className="text-brand-orange-400 font-bold">In-City Hubs:</strong> Hitec City, Gachibowli, Financial District, Kokapet, Jubilee Hills, Banjara Hills, Begumpet, Erragadda
+            </span>
+          </div>
+        </div>
+
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
           <p>© {new Date().getFullYear()} Prime Realty Hyderabad. All Rights Reserved.</p>

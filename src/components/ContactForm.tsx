@@ -6,6 +6,7 @@ interface FormData {
   phone: string;
   email: string;
   propertyType: string;
+  location: string;
   message: string;
 }
 
@@ -14,6 +15,7 @@ interface FormErrors {
   phone?: string;
   email?: string;
   propertyType?: string;
+  location?: string;
   message?: string;
 }
 
@@ -27,12 +29,29 @@ const PROPERTY_OPTIONS = [
   "Other"
 ];
 
+const LOCATION_OPTIONS = [
+  "Entire City of Hyderabad / Central Hubs",
+  "West Hyderabad (Hitec City, Gachibowli, Kokapet, Tellapur)",
+  "North Hyderabad (Kompally, Bachupally, Medchal)",
+  "East & South Hyderabad (Uppal, LB Nagar, Shamshabad)",
+  "Mumbai Highway (NH-65 - Patancheru, Sangareddy, Sadashivpet)",
+  "Bengaluru Highway (NH-44 - Shamshabad, Kothur, Shadnagar)",
+  "Shankarpally & Vikarabad Corridor (Mokila, Chevella)",
+  "Srisailam Highway (NH-765 - Tukkuguda, Maheshwaram, Kadthal)",
+  "Vijayawada Highway (NH-65 - Hayathnagar, Choutuppal)",
+  "Warangal Highway (NH-163 - Ghatkesar, Bibinagar, Bhongir)",
+  "Medchal Highway (NH-44 - Kompally, Kandlakoya, Medchal)",
+  "Shamirpet Highway (Rajiv Rahadari - Genome Valley)",
+  "Other / Open to Suggestions"
+];
+
 export const ContactForm: React.FC<{ defaultRequirement?: string }> = ({ defaultRequirement }) => {
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     phone: '',
     email: '',
     propertyType: defaultRequirement || '',
+    location: '',
     message: '',
   });
 
@@ -96,6 +115,7 @@ export const ContactForm: React.FC<{ defaultRequirement?: string }> = ({ default
       phone: '',
       email: '',
       propertyType: '',
+      location: '',
       message: '',
     });
     setErrors({});
@@ -222,34 +242,55 @@ export const ContactForm: React.FC<{ defaultRequirement?: string }> = ({ default
           </div>
         </div>
 
-        {/* Preferred Property Type Dropdown */}
-        <div>
-          <label htmlFor="propertyType" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
-            Preferred Property Requirement <span className="text-brand-orange-500">*</span>
-          </label>
-          <select
-            id="propertyType"
-            value={formData.propertyType}
-            onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
-            className={`w-full px-4 py-3 rounded-lg border text-sm text-slate-900 bg-white focus:outline-none focus:ring-2 transition-all ${
-              errors.propertyType
-                ? 'border-red-400 focus:ring-red-200 bg-red-50/20'
-                : 'border-slate-200 focus:border-brand-blue-800 focus:ring-brand-blue-100'
-            }`}
-          >
-            <option value="">Select Property Type</option>
-            {PROPERTY_OPTIONS.map((opt) => (
-              <option key={opt} value={opt}>
-                {opt}
-              </option>
-            ))}
-          </select>
-          {errors.propertyType && (
-            <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
-              <AlertCircle className="w-3.5 h-3.5" />
-              <span>{errors.propertyType}</span>
-            </p>
-          )}
+        {/* Preferred Property Type & Corridor Dropdowns */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="propertyType" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+              Preferred Property Requirement <span className="text-brand-orange-500">*</span>
+            </label>
+            <select
+              id="propertyType"
+              value={formData.propertyType}
+              onChange={(e) => setFormData({ ...formData, propertyType: e.target.value })}
+              className={`w-full px-4 py-3 rounded-lg border text-sm text-slate-900 bg-white focus:outline-none focus:ring-2 transition-all ${
+                errors.propertyType
+                  ? 'border-red-400 focus:ring-red-200 bg-red-50/20'
+                  : 'border-slate-200 focus:border-brand-blue-800 focus:ring-brand-blue-100'
+              }`}
+            >
+              <option value="">Select Property Type</option>
+              {PROPERTY_OPTIONS.map((opt) => (
+                <option key={opt} value={opt}>
+                  {opt}
+                </option>
+              ))}
+            </select>
+            {errors.propertyType && (
+              <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
+                <AlertCircle className="w-3.5 h-3.5" />
+                <span>{errors.propertyType}</span>
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="location" className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+              Target Location / Highway Corridor
+            </label>
+            <select
+              id="location"
+              value={formData.location}
+              onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+              className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-brand-blue-800 focus:ring-brand-blue-100 text-sm text-slate-900 bg-white focus:outline-none focus:ring-2 transition-all"
+            >
+              <option value="">Select Area / Highway Corridor</option>
+              {LOCATION_OPTIONS.map((loc) => (
+                <option key={loc} value={loc}>
+                  {loc}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
         {/* Message */}
@@ -260,7 +301,7 @@ export const ContactForm: React.FC<{ defaultRequirement?: string }> = ({ default
           <textarea
             id="message"
             rows={4}
-            placeholder="Tell us about your budget, preferred locations (e.g. Shankarpally, Mokila, Financial District, Kompally), size requirement, or timeframe..."
+            placeholder="Tell us about your budget, preferred highway corridor (e.g. Mumbai Highway, Bengaluru Highway, Shankarpally/Vikarabad, Srisailam Highway, Warangal Highway), or size..."
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             className={`w-full px-4 py-3 rounded-lg border text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 transition-all ${
