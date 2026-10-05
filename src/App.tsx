@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
@@ -11,6 +11,7 @@ import { ServicesPage } from './pages/ServicesPage';
 import { PropertySolutionsPage } from './pages/PropertySolutionsPage';
 import { WhyPrimeRealtyPage } from './pages/WhyPrimeRealtyPage';
 import { ContactPage } from './pages/ContactPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 
 export const App: React.FC = () => {
   return (
@@ -26,6 +27,7 @@ export const App: React.FC = () => {
             <Route path="/property-solutions" element={<PropertySolutionsPage />} />
             <Route path="/why-prime-realty" element={<WhyPrimeRealtyPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             {/* Fallback to Home */}
             <Route path="*" element={<HomePage />} />
           </Routes>

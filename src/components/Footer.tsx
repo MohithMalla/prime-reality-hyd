@@ -83,6 +83,15 @@ export const Footer: React.FC = () => {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  to="/privacy-policy"
+                  className="text-slate-400 hover:text-brand-orange-500 transition-colors flex items-center gap-2 group"
+                >
+                  <ArrowRight className="w-3.5 h-3.5 text-slate-600 group-hover:text-brand-orange-500 transition-colors" />
+                  <span>Privacy Policy</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -209,7 +218,16 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-          <p>© {new Date().getFullYear()} Prime Realty Hyderabad. All Rights Reserved.</p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-center sm:text-left">
+            <p>© {new Date().getFullYear()} Prime Realty Hyderabad. All Rights Reserved.</p>
+            <span className="hidden sm:inline text-slate-600">|</span>
+            <Link
+              to="/privacy-policy"
+              className="text-slate-400 hover:text-brand-orange-500 transition-colors font-medium underline underline-offset-4 decoration-slate-700 hover:decoration-brand-orange-500"
+            >
+              Privacy Policy
+            </Link>
+          </div>
           <p className="text-slate-400 italic font-script text-base">
             "{BRAND.tagline}"
           </p>
